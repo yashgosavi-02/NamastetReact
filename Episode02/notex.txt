@@ -1,0 +1,46 @@
+# Igniting our App
+// For code to be production ready, we need to optimize, minify the code and bundle it.
+// React alone does not make our app fast but there are various packages which helps in making app fast and optimized
+
+# what it takes to build a CRA?
+// NPM - It is not Node Package Manager; It manages packages or dependencies. It helps us to get any Package into our app which supports javascript.
+
+// npm init -> Package.json is created (configuration for npm). Keeps track of what version(approx) of packages is needed.
+
+// Bundler - Minifies, bundles our to make it ship to production. (Webpack[CRA+Bable], Parcel, Vite)
+// dependencies - Development dependencies (-D), Normal dependencies
+
+# Getting parcel into our app
+npm install -D Parcel
+
+// It creates package-lock.json and node_modules
+// package-lock.json - keeps track of locked(exact) version of dependencies
+// node_modules(collection of dependencies) - contains all the code which we added to our app using npm; Never push this code to github; It contains all the transitive dependent code.
+// use 'npm install' to get the node_modules if deleted, you need to have package.json and package-lock.json so you can regenerate the node_modules
+
+//.gitignore - helps to not push files to github
+// ^ (carat) : automatic minor version update
+// ~ (tilde) : major update
+
+// npx parcel index.html - executes app
+// dist -> contains production build file (.html, .css, .js)
+// .parcel-cache -> constain cached data for faster build
+
+# Parcel
+- dev build
+- local server
+- HMR (hot module replacement)
+  -> File Watching Algorithm (immediate changes reflect after ctrl+s)
+  -> Faster Builds using Caching(.parcel-cache)
+- image optimization
+- minification and bundling of prod build
+- compression for easy shipping
+- consistent hashing
+- code splitting
+- differential building (browserlists) : multi-browser support
+- diagnostic and error handling
+- HTTPS support
+- Removal of unused code (tree shaking algorithm)
+
+# dev build - npx parcel index.html
+# prod build - npx parcel build index.html
