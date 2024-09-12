@@ -1,0 +1,96 @@
+# Laying the foundation
+
+# creating scripts
+- "start" : "parcel index.html"
+- "build" : "parcel build index.html"
+
+// we can create scripts inside package.json > scripts
+
+# running scripts
+- dev : npm run start / npm start
+- prod : npm run build
+
+# react element : equivalent to DOM element, a js object
+- const heading = React.createElement("h1",{id:"heading"},"Hello");
+- react element is converted to html element after passing it through render()
+- creating react element is lengthy task, so we prefer JSX
+
+# JSX : JSX is (XML/HTML like syntax) to create react element easily
+- const heading = <h1 id:"heading">Hello</h1>
+- JSX is not pure js, js engine cannot understand this but parcel will help in transpiling code to make js engine understand using babel
+- babel is js compiler which converts jsx to js
+
+# JSX (transpile[babel+parcel]) -> Render[React.createElement([JS object])] -> HTML element
+
+
+# react component - components are like functions that return HTML elements.
+- everything in react is a component (buttons, header,footer)
+- It is reusable code
+
+# class based component
+
+const HeadingComponent = class extends React.Component {
+  render() {
+    return <h2>Hi, I am a Car!</h2>;
+  }
+}
+
+# functional component
+const HeadingComponent = () =>{
+    return(
+        <h1 id="heading">Namaste React</h1>
+    )
+}
+
+root.render(<HeadingComponent/>) / root.render(HeadingComponent())
+
+# multiple component rendering
+root.render(
+    <>  
+        <Component1/>
+        <Component2/>
+    </>
+)
+
+# component composition
+const Title = <h1 id='title'>Namaste React</h1>;
+const Description = <p id='description'>This is a react course by akshay saini</p>;
+const Syllabus = () => {
+    return (
+        <p id="syllabus">React, ReactDOM, Redux </p>
+    )
+}
+
+const Course = () => {
+    return (
+        <>
+            {Title}
+            {Description}
+            <Syllabus/>
+        </>
+    );
+}
+
+root.render(<Course/>)
+
+
+# use () to write react element in multi line
+# <compName/> or <compName></compName> or compName() or {compName()} is same
+# use {} to write js code inside JSX [component to element conversion and vice-versa]; putting element into component
+
+
+# with or without return
+const HeadingComponent = () =>{
+    return(
+        <h1 id="heading" className="heading">Namaste React</h1>
+    )
+}
+
+const HeadingComponent = () => ( <h1 id="heading" className="heading">Namaste React</h1> )
+
+# react element v/s component
+- element is a plain object that describes a part of the user interface (UI)
+- component is a function or class that can produce elements and manage their state
+
+# cross site scripting / injectection is also handled by JSX by sanitizing the data passed in {}
+
